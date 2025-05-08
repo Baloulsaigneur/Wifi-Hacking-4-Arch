@@ -7,11 +7,15 @@ from subprocess import check_call
 print("\nInstalling Needed Tools")
 print("\n")
 # Check if system is Arch-based or Debian-based
-cmd0 = os.system("if command -v pacman > /dev/null; then "
-                "sudo pacman -Sy --needed aircrack-ng crunch terminator wordlists reaver pixiewps bully wifite; "
-                "else "
-                "apt-get install aircrack-ng crunch terminator wordlists reaver pixiewps bully terminator wifite; "
-                "fi")
+cmd0 = os.system(
+    "if command -v pacman > /dev/null; then "
+    "sudo pacman -Syu --needed aircrack-ng terminator reaver pixiewps bully wifite; "
+    "echo 'Installer crunch et wordlists manuellement ou via AUR (ex: yay -S crunch wordlists)'; "
+    "else "
+    "sudo apt install -y aircrack-ng crunch terminator wordlists reaver pixiewps bully wifite; "
+    "fi"
+)
+
 cmd = os.system("sleep 3 && clear")
 def intro():
     cmd  = os.system("clear")
@@ -52,7 +56,7 @@ def intro():
     elif var == 2 :
         print("\nEnter the interface:(Default(wlan0mon/wlan1mon))")
         interface = input("")
-        order = "airmon-ng stop {} && service network-manager restart".format(interface)
+        order = "airmon-ng stop {} && service restart NetworkManager".format(interface)
         geny  = os.system(order)
         intro()
     elif var == 3 :
@@ -113,75 +117,75 @@ def intro():
 """)
             w = int(input("Enter The number of the tool : >>> "))
             if w == 1 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy aircrack-ng; else sudo apt-get update && apt-get install aircrack-ng; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu aircrack-ng; else sudo apt-get update && apt-get install aircrack-ng; fi")
             elif w == 90:
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy git && git clone https://github.com/v1s1t0r1sh3r3/airgeddon.git; else sudo apt-get update && apt-get install git && git clone https://github.com/v1s1t0r1sh3r3/airgeddon.git; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu git && git clone https://github.com/v1s1t0r1sh3r3/airgeddon.git; else sudo apt-get update && apt-get install git && git clone https://github.com/v1s1t0r1sh3r3/airgeddon.git; fi")
             elif w == 91:
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy git && git clone https://github.com/derv82/wifite2.git; else sudo apt-get update && apt-get install git && git clone https://github.com/derv82/wifite2.git; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu git && git clone https://github.com/derv82/wifite2.git; else sudo apt-get update && apt-get install git && git clone https://github.com/derv82/wifite2.git; fi")
             elif w == 2 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy asleap; else sudo apt-get update && apt-get install asleep; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu asleap; else sudo apt-get update && apt-get install asleep; fi")
             elif w == 3 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy bluelog; else sudo apt-get update && apt-get install bluelog; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu bluelog; else sudo apt-get update && apt-get install bluelog; fi")
             elif w == 4 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy bluemaho; else sudo apt-get update && apt-get install bluemaho; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu bluemaho; else sudo apt-get update && apt-get install bluemaho; fi")
             elif w == 5 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy bluepot; else sudo apt-get update && apt-get install bluepot; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu bluepot; else sudo apt-get update && apt-get install bluepot; fi")
             elif w == 6 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy blueranger; else sudo apt-get update && apt-get install blueranger; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu blueranger; else sudo apt-get update && apt-get install blueranger; fi")
             elif w == 7 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy bluesnarfer; else sudo apt-get update && apt-get install bluesnarfer; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu bluesnarfer; else sudo apt-get update && apt-get install bluesnarfer; fi")
             elif w == 8 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy bully; else sudo apt-get update && apt-get install bully; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu bully; else sudo apt-get update && apt-get install bully; fi")
             elif w == 9 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy cowpatty; else sudo apt-get update && apt-get install cowpatty; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu cowpatty; else sudo apt-get update && apt-get install cowpatty; fi")
             elif w == 10 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy crackle; else sudo apt-get update && apt-get install crackle; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu crackle; else sudo apt-get update && apt-get install crackle; fi")
             elif w == 11 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy eapmd5pass; else sudo apt-get update && apt-get install eapmd5pass; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu eapmd5pass; else sudo apt-get update && apt-get install eapmd5pass; fi")
             elif w == 12 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy fern-wifi-cracker; else sudo apt-get update && apt-get install fern-wifi-cracker; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu fern-wifi-cracker; else sudo apt-get update && apt-get install fern-wifi-cracker; fi")
             elif w == 13 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy ghost-phisher; else sudo apt-get update && apt-get install ghost-phisher; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu ghost-phisher; else sudo apt-get update && apt-get install ghost-phisher; fi")
             elif w == 14 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy giskismet; else sudo apt-get update && apt-get install giskismet; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu giskismet; else sudo apt-get update && apt-get install giskismet; fi")
             elif w == 15 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy gr-scan; else apt-get install git && git clone git://git.kali.org/packages/gr-scan.git; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu gr-scan; else apt-get install git && git clone git://git.kali.org/packages/gr-scan.git; fi")
             elif w == 16 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy kalibrate-rtl; else sudo apt-get update && apt-get install kalibrate-rtl; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu kalibrate-rtl; else sudo apt-get update && apt-get install kalibrate-rtl; fi")
             elif w == 17 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy killerbee-ng; else sudo apt-get update && apt-get install killerbee-ng; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu killerbee-ng; else sudo apt-get update && apt-get install killerbee-ng; fi")
             elif w == 18 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy kismet; else sudo apt-get update && apt-get install kismet; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu kismet; else sudo apt-get update && apt-get install kismet; fi")
             elif w == 19 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy mdk3; else sudo apt-get update && apt-get install mdk3; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu mdk3; else sudo apt-get update && apt-get install mdk3; fi")
             elif w == 20 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy mfcuk; else sudo apt-get update && apt-get install mfcuk; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu mfcuk; else sudo apt-get update && apt-get install mfcuk; fi")
             elif w == 21 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy mfoc; else sudo apt-get update && apt-get install mfoc; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu mfoc; else sudo apt-get update && apt-get install mfoc; fi")
             elif w == 22 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy mfterm; else sudo apt-get update && apt-get install mfterm; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu mfterm; else sudo apt-get update && apt-get install mfterm; fi")
             elif w == 23 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy multimon-ng; else sudo apt-get update && apt-get install multimon-ng; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu multimon-ng; else sudo apt-get update && apt-get install multimon-ng; fi")
             elif w == 24 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy pixiewps; else sudo apt-get update && apt-get install pixiewps; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu pixiewps; else sudo apt-get update && apt-get install pixiewps; fi")
             elif w == 25 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy reaver; else sudo apt-get update && apt-get install reaver; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu reaver; else sudo apt-get update && apt-get install reaver; fi")
             elif w == 26 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy redfang; else sudo apt-get update && apt-get install redfang; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu redfang; else sudo apt-get update && apt-get install redfang; fi")
             elif w == 27 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy rtlsdr-scanner; else sudo apt-get update && apt-get install rtlsdr-scanner; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu rtlsdr-scanner; else sudo apt-get update && apt-get install rtlsdr-scanner; fi")
             elif w == 28 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy spooftooph; else sudo apt-get update && apt-get install spooftooph; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu spooftooph; else sudo apt-get update && apt-get install spooftooph; fi")
             elif w == 29 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy wifi-honey; else sudo apt-get update && apt-get install wifi-honey; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu wifi-honey; else sudo apt-get update && apt-get install wifi-honey; fi")
             elif w == 30 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy wifitap; else sudo apt-get update && apt-get install wifitap; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu wifitap; else sudo apt-get update && apt-get install wifitap; fi")
             elif w == 31 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy wifite; else sudo apt-get update && apt-get install wifite; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu wifite; else sudo apt-get update && apt-get install wifite; fi")
             elif w == 32 :
                 intro()
             elif w == 0 :
-                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Sy aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite; else apt-get install -y aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite; fi")
+                cmd = os.system("if command -v pacman > /dev/null; then sudo pacman -Syu aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite; else apt-get install -y aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite; fi")
             else:
                 print("Not Found")
             wire()
